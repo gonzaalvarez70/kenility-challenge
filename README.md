@@ -16,7 +16,16 @@ Star point: Dockerize MongoDB and the Node API
 $ npm install
 ```
 
-## Running the app
+## Pre-requisites
+You should run the DB locally first by running 
+```
+cd docker
+docker-compose up -d
+```
+
+If you want to run a completely dockerized version of the app you can uncomment the first lines in the `docker-compose.yml` file and run `docker-compose up -d` this should run a local docker instance of both the DB and the API.
+
+## Running the app locally
 
 ```bash
 # development
