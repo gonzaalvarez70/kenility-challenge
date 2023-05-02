@@ -28,7 +28,7 @@ export class S3ManagerService {
           Logger.error(err);
           reject(err.message);
         }
-        Logger.log(`File Uploaded successfully ${data}`);
+        Logger.log(`File Uploaded successfully ${JSON.stringify(data)}`);
         resolve(data);
       });
     });
