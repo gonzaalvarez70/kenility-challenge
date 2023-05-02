@@ -1,6 +1,7 @@
 ## Interview challenge repository
 
-Used [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository. Requirements:
+Used [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository. 
+#### Requirements:
 A new company needs to address these requirements:
 Create a Node API with Typescript.
 Connect the Node API to MongoDB using Mongoose (desirable models in typescript).
@@ -38,6 +39,15 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Try the API
+Import the file in `postman-collection` to try out the 5 endpoints
+```
+POST http://localhost:3000/auth/signup
+POST http://localhost:3000/auth/login
+POST http://localhost:3000/users (requires authentication)
+PUT http://localhost:3000/users (requires authentication)
+GET http://localhost:3000/users (requires authentication)
+```
 ## License
 
 [MIT licensed](LICENSE).

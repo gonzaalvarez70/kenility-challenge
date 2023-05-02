@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "772c494f-f3f4-4320-bc0f-4b5087c53f4b",
+		"name": "InterviewChallenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4748174"
+	},
+	"item": [
+		{
+			"name": "Create New User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik15VXNlcm5hbWUiLCJzdWIiOiI2NDUwNzQ0YmVlMzEyMWVhODUyNDE1OTkiLCJpYXQiOjE2ODI5OTQyNjIsImV4cCI6MTY4Mjk5Nzg2Mn0.jZwHZJhXxyrS7tHT5ZvodJQV4ORJkVJxoPr_GdkhNyw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "MyUsername",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": ""
+						},
+						{
+							"key": "name",
+							"value": "Name",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "LastName",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "My Address 1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"username\": \"MyUsername\",\n \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"username\": \"MyUsername\",\n \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik15VXNlcm5hbWUiLCJzdWIiOiI2NDUwNzQ0YmVlMzEyMWVhODUyNDE1OTkiLCJpYXQiOjE2ODI5OTQyNjIsImV4cCI6MTY4Mjk5Nzg2Mn0.jZwHZJhXxyrS7tHT5ZvodJQV4ORJkVJxoPr_GdkhNyw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "MyUsername",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Name",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "LastName",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "My Address 1234",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "64505cc4cd47ff7d8bbe7fdd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find all users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik15VXNlcm5hbWUiLCJzdWIiOiI2NDUwNzQ0YmVlMzEyMWVhODUyNDE1OTkiLCJpYXQiOjE2ODI5OTQyNjIsImV4cCI6MTY4Mjk5Nzg2Mn0.jZwHZJhXxyrS7tHT5ZvodJQV4ORJkVJxoPr_GdkhNyw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
