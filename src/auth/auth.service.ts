@@ -36,7 +36,7 @@ export class AuthService {
     };
   }
 
-  async signup(signupUserDto: SignupUserDto): Promise<UserDocument> {
+  async signup(signupUserDto: SignupUserDto): Promise<Record<string, string>> {
     const result = await this.userService.create(signupUserDto);
     return result;
   }

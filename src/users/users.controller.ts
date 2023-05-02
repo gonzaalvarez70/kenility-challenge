@@ -19,7 +19,9 @@ export class UsersController {
 
   @UseGuards(AuthGuard)
   @Post()
-  create(@Body() createUserDto: CreateUserDto): Promise<UserDocument> {
+  create(
+    @Body() createUserDto: CreateUserDto,
+  ): Promise<Record<string, string>> {
     return this.usersService.create(createUserDto);
   }
 
@@ -34,7 +36,7 @@ export class UsersController {
   update(
     @Param('id') id: string,
     @Body() updateUserDto: UpdateUserDto,
-  ): Promise<UserDocument> {
+  ): Promise<Record<string, string>> {
     return this.usersService.update(id, updateUserDto);
   }
 }
