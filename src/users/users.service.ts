@@ -5,27 +5,44 @@ import { InjectModel } from '@nestjs/mongoose';
 import { User, UserDocument } from './schemas/user.schema';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
+import { S3ManagerService } from '../s3-manager/s3-manager.service';
 
 @Injectable()
 export class UsersService {
-  constructor(@InjectModel(User.name) private userModel: Model<User>) {}
+  constructor(
+    @InjectModel(User.name) private userModel: Model<User>,
+    private s3Service: S3ManagerService,
+  ) {}
 
   async create(
     createUserDto: Partial<CreateUserDto>,
+    file: Express.Multer.File = null,
   ): Promise<Record<string, string>> {
     try {
+      const existingUser = await this.findByUsername(createUserDto.username);
+      if (existingUser) {
+        console.log(existingUser);
+        throw new Error(`Username ${createUserDto.username} already exists`);
+      }
       const saltOrRounds = 10;
       const hashedPassword = await bcrypt.hash(
         createUserDto.password,
         saltOrRounds,
       );
+      let profilePicture = '';
+      if (file) {
+        const uploadResult = await this.s3Service.upload(file);
+        profilePicture = uploadResult.Location;
+      }
       const createdUser = new this.userModel({
         ...createUserDto,
         password: hashedPassword,
+        profilePicture,
       });
       return { _id: (await createdUser.save())._id.toString() };
     } catch (error) {
       Logger.error(`Error creating new user ${error}`);
+      throw new Error(`Error creating new user`);
     }
   }
 

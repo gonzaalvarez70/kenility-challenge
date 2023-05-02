@@ -1,4 +1,4 @@
-## Kenility challenge repository
+## Interview challenge repository
 
 Used [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository. Requirements:
 A new company needs to address these requirements:
@@ -17,7 +17,7 @@ $ npm install
 ```
 
 ## Pre-requisites
-You should run the DB locally first by running 
+You should start the DB and MinIO (Local S3) first
 ```
 cd docker
 docker-compose up -d
@@ -36,19 +36,6 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
 ## License
