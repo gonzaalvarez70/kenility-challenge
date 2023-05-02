@@ -1,6 +1,24 @@
 version: '3.8'
 
 services:
+  # NestJS API Docker instance - Uncomment to run container with API instance 
+  # app:
+  #   build:
+  #     context: ../
+  #     dockerfile: ./Dockerfile
+  #   container_name: nestjs-api
+  #   restart: unless-stopped
+  #   environment:
+  #     - MONGO_DB_URL=mongodb://root:example@mongodb:27017/example?authSource=admin
+  #     - JWT_SECRET=MY_SECRET_EXAMPLE
+  #     - AWS_ACCESS_KEY=minioadmin
+  #     - AWS_SECRET_KEY=minioadmin
+  #     - AWS_ENDPOINT=http://minio:9000
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - mongodb
+
   minio:
     image: minio/minio
     volumes:

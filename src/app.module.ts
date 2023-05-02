@@ -36,11 +36,7 @@ import { AwsSdkModule } from 'nest-aws-sdk';
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
-        uri: `mongodb://${configService.get(
-          'MONGO_DB_USER',
-        )}:${configService.get(
-          'MONGO_DB_PASSWORD',
-        )}@localhost:27017/example?authSource=admin`,
+        uri: configService.get('MONGO_DB_URL'),
       }),
       inject: [ConfigService],
     }),

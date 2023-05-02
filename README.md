@@ -28,7 +28,7 @@ cd docker
 docker-compose up -d
 ```
 
-If you want to run a completely dockerized version of the app you can uncomment the first lines in the `docker-compose.yml` file and run `docker-compose up -d` this should run a local docker instance of both the DB and the API.
+If you want to run a completely dockerized version of the app you can uncomment the first lines (`app` section) in the `docker-compose.yml` file and run `docker-compose up -d` this should run a local docker instance of all needed services and be available at `http://localhost:3000`.
 
 ## Running the app locally
 
