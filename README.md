@@ -1,8 +1,8 @@
-## Interview challenge repository
+# Interview challenge repository
 
 Used [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-#### Requirements:
+#### Challenge requirements:
 
 A new company needs to address these requirements:
 Create a Node API with Typescript.
@@ -21,14 +21,21 @@ $ npm install
 
 ## Pre-requisites
 
-You should start the DB and MinIO (Local S3) first
+> Install [Docker engine](https://docs.docker.com/get-docker/) and [NVM](https://github.com/nvm-sh/nvm), it is recommended the usage of Node 18 or above.
 
-```
+You should start the DB and MinIO (Local S3 emulator) first
+
+```bash
 cd docker
 docker-compose up -d
 ```
+Configure the `.env` file with the recommended settings included in `.env.example`. You can run the following command or create the file manually and copy the content.
+```bash
+cp .env.example .env
+```
 
-If you want to run a completely dockerized version of the app you can uncomment the first lines (`app` section) in the `docker-compose.yml` file and run `docker-compose up -d` this should run a local docker instance of all needed services and be available at `http://localhost:3000`.
+Everything is configured to run the app locally. 
+>If you want to run a completely dockerized version of the app you can uncomment the first lines (`app` section) in the `docker-compose.yml` file and run `docker-compose up -d` this should run a local docker instance of all needed services and be available at `http://localhost:3000`.
 
 ## Running the app locally
 
